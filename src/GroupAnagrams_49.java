@@ -1,6 +1,6 @@
 import java.util.*;
 
-public class GroupAnagrams {
+public class GroupAnagrams_49 {
 
     public List<List<String>> groupAnagrams(String[] strs) {
 
