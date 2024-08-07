@@ -13,3 +13,4 @@ public class MajorityElement_169 {
         return maj;
     }
 }
+
