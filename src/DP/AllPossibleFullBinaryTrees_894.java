@@ -35,7 +35,6 @@ public class AllPossibleFullBinaryTrees_894 {
                     root.left = l;
                     root.right = r;
                     result.add(root);
-
                 }
             }
             leftSize += 2;
