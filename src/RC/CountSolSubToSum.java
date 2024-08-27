@@ -7,23 +7,17 @@ import static utils.Print.printArrayList;
 
 public class CountSolSubToSum {
 
-    private static int countSolSubToSum(int index, ArrayList<Integer> arr, int sum, ArrayList<Object> carry, int sumCarry) {
+    private static int countSolSubToSum(int index, ArrayList<Integer> arr, int sum, int sumCarry) {
 
         if (index == arr.size()) {
-            if (sumCarry == sum) {
-                printArrayList(carry);
-                System.out.println();
-                return 1;
-            }
+            if (sumCarry == sum) return 1;
             return 0;
         }
-        carry.add(arr.get(index));
         sumCarry += arr.get(index);
-        int l = countSolSubToSum(index + 1, arr, sum, carry, sumCarry);
+        int l = countSolSubToSum(index + 1, arr, sum, sumCarry);
 
-        carry.remove(carry.size() - 1);
         sumCarry -= arr.get(index);
-        int r = countSolSubToSum(index + 1, arr, sum, carry, sumCarry);
+        int r = countSolSubToSum(index + 1, arr, sum, sumCarry);
 
         return l + r;
 
@@ -32,11 +26,10 @@ public class CountSolSubToSum {
 
     public static void main(String[] args) {
 
-        ArrayList<Integer> mojaLista = new ArrayList<>(List.of(1, 2, 1));
-        int sum = 2;
+        ArrayList<Integer> mojaLista = new ArrayList<>(List.of(1, 3, 1, 2, 4, 6, 7, 2));
+        int sum = 10;
 
-
-        System.out.println("Number of solution(s) : " + countSolSubToSum(0, mojaLista, sum, new ArrayList<>(), 0));
+        System.out.println("Number of solution(s) : " + countSolSubToSum(0, mojaLista, sum, 0));
 
     }
 
