@@ -1,9 +1,6 @@
 package DP;
 
-import java.util.HashMap;
-import java.util.Map;
 
-import static utils.Print.printArray;
 
 public class CountingBits_338 {
 
@@ -23,13 +20,5 @@ public class CountingBits_338 {
         }
         return bits;
     }
-
-    public static void main(String[] args) {
-
-        int n = 5;
-        printArray(countBits(n));
-
-    }
-
 
 }

@@ -22,9 +22,4 @@ public class CountSortedVowelStrings_1641 {
         }
         return sum;
     }
-
-    public static void main(String[] args) {
-        System.out.println(countVowelString(3));
-    }
-
 }
