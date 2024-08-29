@@ -3,8 +3,6 @@ package RC;
 import java.util.ArrayList;
 import java.util.List;
 
-import static utils.Print.printArrayList;
-
 public class CountSolSubToSum {
 
     private static int countSolSubToSum(int index, ArrayList<Integer> arr, int sum, int sumCarry) {

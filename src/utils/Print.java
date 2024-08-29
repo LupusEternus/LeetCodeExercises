@@ -1,6 +1,7 @@
 package utils;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class Print {
 
@@ -11,7 +12,7 @@ public class Print {
 
     }
 
-    public static <T> void printArrayList(ArrayList<T> arr){
+    public static <T> void printArrayList(List<T> arr){
         for(T s : arr){
             System.out.print(s + " ");
         }
