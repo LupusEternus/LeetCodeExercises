@@ -3,6 +3,7 @@ package RC;
 /*
   Given an array nums of distinct integers, return all the possible permutations. You can return the answer in any order.
   leetcode.com/problems/permutations/description/
+  Solution by recursion + free/taken slot mechanism
 */
 
 import java.util.ArrayList;
@@ -23,6 +24,7 @@ public class Permutations {
     private static void helper(int[] nums,List<List<Integer>> ans, List<Integer> carry, boolean[] slots){
         if(carry.size() == nums.length){
             ans.add(new ArrayList<>(carry));
+            return;
         }
         for (int i = 0; i< nums.length; i++){
             if(slots[i]) continue;
