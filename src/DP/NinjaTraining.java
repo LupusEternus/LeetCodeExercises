@@ -1,16 +1,19 @@
 package DP;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class NinjaTraining {
 
     public static int ninjaTraining(int days, List<List<Integer>> points){
-
-        return helper(days -1,points,3);
+        Map<String,Integer> memory = new HashMap<>();
+        return helper(days -1,points,3,memory);
     }
 
-    private static int helper(int day, List<List<Integer>> points, int last) {
+    private static int helper(int day, List<List<Integer>> points, int last,Map<String,Integer> memory) {
+        String temp = day + ":" + last;
 
         if(day == 0){
             int maxi = 0;
@@ -21,14 +24,19 @@ public class NinjaTraining {
             }
             return maxi;
         }
+        if(memory.containsKey(temp)){
+            return memory.get(temp);
+        }
+
 
         int maxi = 0;
         for(int j = 0; j < 3;j++){
             if(j != last){
-                int currentPoints = points.get(day).get(j) + helper(day-1,points,j);
+                int currentPoints = points.get(day).get(j) + helper(day-1,points,j,memory);
                 maxi = Math.max(maxi,currentPoints);
             }
         }
+        memory.put(temp,maxi);
         return maxi;
 
     }
