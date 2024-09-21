@@ -36,9 +36,9 @@ public class FrogJump_K {
     }
     public static void main(String[] args) {
 
-        ArrayList<Integer> arr = new ArrayList<>(List.of(7, 4, 8, 2, 1, 3, 5, 6, 4, 2));
+        ArrayList<Integer> arr = new ArrayList<>(List.of(30,10,60,10,60,50));
 
-        System.out.println(frogJump(arr.size()-1,arr,4));
+        System.out.println(frogJump(arr.size()-1,arr,2));
 
     }
 
