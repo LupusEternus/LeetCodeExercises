@@ -1,6 +1,8 @@
 package RC;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 import static utils.Print.printArrayList;
 

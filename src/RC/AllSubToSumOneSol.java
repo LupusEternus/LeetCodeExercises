@@ -1,9 +1,7 @@
 package RC;
 
 import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
 
 import static utils.Print.printArrayList;
 
@@ -26,10 +24,7 @@ public class AllSubToSumOneSol {
         }
         carrySum -= array.get(index);
         carry.remove(carry.size() - 1);
-        if (allSubToSum(index + 1, carry, array, target, carrySum)) {
-            return true;
-        }
-        return false;
+        return allSubToSum(index + 1, carry, array, target, carrySum);
     }
 
     public static void main(String[] args) {

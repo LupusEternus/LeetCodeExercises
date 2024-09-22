@@ -5,9 +5,7 @@ public class MergeSortedArray_88 {
         if (n < 1) return;
 
         int[] helper = new int[m];
-        for (int i = 0; i < helper.length; i++) {
-            helper[i] = nums1[i];
-        }
+        System.arraycopy(nums1, 0, helper, 0, helper.length);
 
         int l = helper.length - 1;
         int r = nums2.length - 1;

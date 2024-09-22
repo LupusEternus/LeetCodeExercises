@@ -3,10 +3,10 @@ public class LengthOfLastWord_58 {
     public int lengthOfLastWord(String s) {
         s = s.trim();
         int length = 0;
-        for(int i = s.length() -1; i>= 0; i--){
-            if(s.charAt(i) == ' ' ){
+        for (int i = s.length() - 1; i >= 0; i--) {
+            if (s.charAt(i) == ' ') {
                 return length;
-            }else {
+            } else {
                 length++;
             }
 

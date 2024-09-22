@@ -9,7 +9,7 @@ import static utils.Print.printArrayList;
 
 public class AllSubToSum {
 
-    private static Set<ArrayList<Integer>> seen = new HashSet<>();
+    private static final Set<ArrayList<Integer>> seen = new HashSet<>();
 
     private static void allSubToSum(int index, ArrayList<Integer> carry, ArrayList<Integer> array, int target, int carrySum) {
         if (index == array.size()) {

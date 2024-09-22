@@ -1,5 +1,3 @@
-import java.util.*;
-
 public class MinimumDeletionsToMakeStringBalanced_1653 {
     public static int minimumDeletions(String s) {
         int b = 0;
