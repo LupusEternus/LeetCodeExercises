@@ -1,9 +1,7 @@
 package DP;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 
 /*
@@ -20,28 +18,26 @@ Your task is to calculate the maximum number of merit points that Ninja can earn
 public class NinjaTraining_Tabulation {
 
     public static int ninjaTraining_Tab(int days, List<List<Integer>> points) {
-        int[][] dp = new int[days][4];
+        int[][] dp = new int[days][days];
 
-        dp[0][0] = Math.max(points.get(0).get(1), points.get(0).get(2));
-        dp[0][1] = Math.max(points.get(0).get(0), points.get(0).get(2));
-        dp[0][2] = Math.max(points.get(0).get(0), points.get(0).get(1));
-        dp[0][3] = Math.max(points.get(0).get(1), Math.max(points.get(0).get(0), points.get(0).get(2)));
+        dp[0][0] = points.get(0).get(0);
+        dp[0][1] = points.get(0).get(1);
+        dp[0][2] = points.get(0).get(2);
 
         for (int day = 1; day < days; day++) {
-            for (int last = 0; last < 4; last++) {
-                dp[day][last] = 0;
+            for (int last = 0; last < 3; last++) {
                 int maxi = 0;
                 for (int task = 0; task < 3; task++) {
-                    if (task != last) {
-                        int tempPoints = points.get(day).get(task) + dp[day - 1][task];
-                        maxi = Math.max(maxi, tempPoints);
+                    if(task != last){
+                        int current = points.get(day).get(task) + dp[day-1][last];
+                        maxi = Math.max(maxi,current);
                     }
                 }
                 dp[day][last] = maxi;
-
             }
+
         }
-        return dp[days - 1][3];
+        return Math.max(dp[days-1][0],Math.max(dp[days-1][1],dp[days-1][2]));
     }
 
 
