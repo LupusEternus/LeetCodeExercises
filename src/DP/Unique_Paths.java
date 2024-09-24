@@ -24,7 +24,7 @@ public class Unique_Paths {
     }
 
     public static void main(String[] args) {
-        System.out.println(uniquePaths(2, 2));
+        System.out.println(uniquePaths(4, 4));
     }
 
 }
