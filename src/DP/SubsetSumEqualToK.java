@@ -4,20 +4,23 @@ import java.util.List;
 
 public class SubsetSumEqualToK {
 
-    public static boolean subsetSumToK( int k, List<Integer> arr){
+    public static boolean subsetSumToK(int n, int k, int[] arr) {
 
-        return  f(0,0,k,arr);
+        return f(arr.length - 1, k, arr);
     }
 
-    private static boolean f(int i,int currSum, int k, List<Integer> arr) {
+    private static boolean f(int i, int target, int[] arr) {
 
-        if(currSum  == k) return true;
-        if(i >= arr.size()) return false;
+        if (target == 0) return true;
+        if (i == 0) return arr[0] == target;
 
-        currSum += arr.get(i);
-        boolean pick = f(i+1,currSum,k,arr);
-        currSum -= arr.get(i);
-        boolean notPick = f(i+1,currSum,k,arr);
+        boolean notPick = f(i - 1, target, arr);
+        boolean pick = false;
+        if (target >= arr[i]) {
+            target -= arr[i];
+            pick = f(i - 1, target, arr);
+
+        }
 
         return pick || notPick;
     }
