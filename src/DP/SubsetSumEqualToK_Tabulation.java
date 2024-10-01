@@ -25,5 +25,11 @@ public class SubsetSumEqualToK_Tabulation {
         }
         return dp[n - 1][k];
     }
+    public static void main(String[] args) {
+        int[] arr = new int[]{4,3,2,1};
+
+        System.out.println(subsetSumToK(4,5,arr));
+
+    }
 }
 
