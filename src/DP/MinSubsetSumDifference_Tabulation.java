@@ -1,5 +1,5 @@
 package DP;
-//TODO
+
 public class MinSubsetSumDifference_Tabulation {
 
     public static int minSubsetSumDifference(int[] arr, int n) {
@@ -7,23 +7,28 @@ public class MinSubsetSumDifference_Tabulation {
         for (int i = 0; i < n; i++) {
             sum += arr[i];
         }
-        return f(arr.length - 1, 0,sum, arr);
-    }
-
-    
-    private static int f(int index, int currentSum, int sum, int[] arr) {
-        if (index < 0) {
-            int sum2 = sum - currentSum;
-            return Math.abs(currentSum - sum2);
+        boolean[][] dp = new boolean[n][sum + 1];
+        for (int i = 0; i < n; i++) {
+            dp[i][0] = true;
         }
-        int notPick = f(index - 1, currentSum, sum, arr);
-        int pic = f(index - 1, currentSum + arr[index], sum, arr);
+        for (int index = 1; index < n; index++) {
+            for (int dpSum = 1; dpSum <= sum; dpSum++) {
+                boolean pic = false;
+                if (dpSum >= arr[index]) {
+                    pic = dp[index - 1][dpSum - arr[index]];
+                }
+                boolean notPic = dp[index - 1][dpSum];
+                dp[index][dpSum] = pic || notPic;
+            }
+        }
+        int diff = Integer.MAX_VALUE;
+        for (int dpSum = 0; dpSum <= sum; dpSum++) {
+            if (dp[n - 1][dpSum]) {
+                int currentDiff = Math.abs(sum - (2 * dpSum));
+                diff = Math.min(diff, currentDiff);
+            }
+        }
 
-        return Math.min(pic, notPick);
-    }
-
-    public static void main(String[] args) {
-        int[] arr = new int[]{1, 2, 3, 4};
-        System.out.println(minSubsetSumDifference(arr, arr.length));
+        return diff;
     }
 }
