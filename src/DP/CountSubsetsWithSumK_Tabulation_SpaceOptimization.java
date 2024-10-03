@@ -1,6 +1,6 @@
 package DP;
-
-public class CountSubsetsWithSumK_Tabulation {
+//TODO space optimization , just use two 1D arrays, prev and prev2
+public class CountSubsetsWithSumK_Tabulation_SpaceOptimization {
 
     public static int findWays(int[] num, int tar) {
         int[][] dp = new int[num.length][tar+1];
