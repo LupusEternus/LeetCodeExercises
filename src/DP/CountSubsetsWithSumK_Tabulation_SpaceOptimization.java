@@ -1,35 +1,34 @@
 package DP;
-//TODO space optimization , just use two 1D arrays, prev and prev2
+
 public class CountSubsetsWithSumK_Tabulation_SpaceOptimization {
 
     public static int findWays(int[] num, int tar) {
-        int[][] dp = new int[num.length][tar+1];
-
-        for(int i = 0; i < num.length; i++){
-            if(i == 0 && num[i] == 0){
-                dp[i][0] = 2;
-            }else {
-                dp[i][0] = 1;
-            }
+        int[] prev =  new int[tar+1];
+        if(num[0] == 0){
+            prev[0] = 2;
         }
-        if(num[0] <= tar && num[0] != 0) dp[0][num[0]] = 1;
-
+        else {
+            prev[0] =1;
+        }
+        if(num[0] <= tar && num[0] != 0) prev[num[0]] = 1;
         for(int index = 1; index < num.length; index++){
+            int[] current = new int[tar+1];
+            current[0] = 1;
             for(int target = 0; target <= tar; target++){
-                int notPick = dp[index-1][target];
+                int notPick = prev[target];
                 int pick = 0;
                 if(target >= num[index]){
-                    pick = dp[index-1][target - num[index]];
+                    pick =prev[target - num[index]];
                 }
-                dp[index][target] = pick + notPick;
+               current[target] = pick + notPick;
             }
+            prev = current;
         }
-
-        return dp[num.length-1][tar];
+        return prev[tar];
     }
 
     public static void main(String[] args) {
-        int[] arr = new int[]{12, 14, 3, 18, 2 };
-        System.out.println(findWays(arr,13));
+        int[] arr = new int[]{1,1,1};
+        System.out.println(findWays(arr,2));
     }
 }
