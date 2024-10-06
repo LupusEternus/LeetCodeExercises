@@ -1,7 +1,5 @@
 package DP;
 
-import java.util.List;
-
 public class SubsetSumEqualToK {
 
     public static boolean subsetSumToK(int n, int k, int[] arr) {
