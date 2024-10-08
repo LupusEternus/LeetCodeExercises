@@ -9,10 +9,10 @@ This repository contains Java-based solutions for various data structures and al
 
 ### Examples of Problems Solved
 
-- `TwoSum.java`: Solves the "Two Sum" problem by finding two numbers in an array that add up to a target.
-- `ReverseInteger.java`: Implements a solution to reverse digits of an integer.
-- `PalindromeLinkedList.java`: Checks if a singly linked list is a palindrome.
-- `SearchInRotatedSortedArray.java`: Finds a target element in a rotated sorted array.
+- `MergeKSortedLists.java`: Merges `k` sorted linked lists into one sorted list with an efficient time complexity using a priority queue.
+- `LongestValidParentheses.java`: Finds the length of the longest valid (well-formed) parentheses substring in a given string.
+- `WordLadder.java`: Implements the solution for transforming one word into another using the shortest sequence of transformations from a given word list.
+- `TrappingRainWater.java`: Solves the problem of calculating how much water can be trapped after rainfall given an elevation map.
 
 ## How to Use
 
